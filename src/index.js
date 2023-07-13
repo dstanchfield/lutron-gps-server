@@ -18,7 +18,7 @@ dayjs.tz.setDefault('America/New_York');
 const ALLOWED_DEVIATION_IN_METERS = 160934; // 100 miles
 const COORDINATES_EXPIRATION = 1; // 1 day
 
-const LUTRON_SERVERS = [{ ip: process.env.LUTRON_IP, port: 23, user: process.env.LUTRON_USER, user: process.env.LUTRON_PASSWORD }];
+const LUTRON_SERVERS = [{ ip: process.env.LUTRON_IP, port: 23, user: process.env.LUTRON_USER, password: process.env.LUTRON_PASSWORD }];
 const LUTRON_SYNC_TIMEOUT = 10000;
 
 syncedLatitude = 0;
