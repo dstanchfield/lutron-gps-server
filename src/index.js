@@ -160,4 +160,4 @@ server.on('message', function (message, remote) {
 });
 
 // Replace with your port and IP.
-server.bind(23232, process.env.SERVER_IP);
+server.bind(23232);
