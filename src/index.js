@@ -123,11 +123,20 @@ server.on('listening', function () {
 });
 
 server.on('message', function (message, remote) {
-    console.log('Received: ', message.toString());
+    console.log('Received: ', message.toString().trim());
 
-    var GPGGAObject = nmea.parse(message.toString());
+    var GPGGAObject;
+    var parseSuccess = false;
+    
+    try {
+        GPGGAObject = nmea.parse(message.toString());
+        parseSuccess = true;
+    }
+    catch(err) {
+        console.log('Error: ', err);
+    }
 
-    if (validateRecord(GPGGAObject)) {
+    if (parseSuccess && validateRecord(GPGGAObject)) {
         var currentLatitude = parseFloat(GPGGAObject.latitude).toFixed(1);
         var currentLongitude = parseFloat(GPGGAObject.longitude).toFixed(1);
         var currentTimezones = find(currentLatitude, currentLongitude);
