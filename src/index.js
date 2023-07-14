@@ -123,6 +123,8 @@ server.on('listening', function () {
 });
 
 server.on('message', function (message, remote) {
+    console.log('Received: ', message.toString());
+
     var GPGGAObject = nmea.parse(message.toString());
 
     if (validateRecord(GPGGAObject)) {
