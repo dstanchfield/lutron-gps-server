@@ -146,8 +146,8 @@ server.on('message', function (message, remote) {
 
         // console.log(JSON.stringify(GPGGAObject, null, 2));
 
-        if (hasDeviated(currentLatitude, currentLongitude, ALLOWED_DEVIATION_IN_METERS) || hasCoordinatesExpired()) {
-            console.log('Detected deviation.');
+        if (hasCoordinatesExpired()) {
+            console.log('Coordinates expired.');
 
             var commands = [
                 `#SYSTEM,4,${currentLatitude},${currentLongitude}\r`,
