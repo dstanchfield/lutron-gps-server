@@ -13,8 +13,5 @@ RUN npm install --only=production
 # Copy local code to the container image.
 COPY . .
 
-# Bind to port 23232 for UDP traffic
-EXPOSE 23232/udp
-
 # Run the web service on container startup.
 CMD [ "node", "src/index.js" ]
